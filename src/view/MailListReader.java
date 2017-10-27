@@ -16,7 +16,6 @@ public class MailListReader {
         String mail;
         while((mail=reader.readLine())!=null){
             if(mail.contains("@")){
-                System.out.println("hola");
                 mailList.add(mail);
             }
         }

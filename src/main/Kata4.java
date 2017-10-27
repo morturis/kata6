@@ -12,8 +12,16 @@ public class Kata4 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         String fileName = "C:\\Users\\usuario\\Documents\\NetBeansProjects\\Kata4\\emails.txt";
-        List<String> mailList= MailListReader.read(fileName);
-        Histogram<String> histogram = MailHistogramBuilder.build(mailList);
+        
+        output(process(input(fileName)));        
+    }
+    private static List<String> input(String fileName) throws FileNotFoundException, IOException{
+        return MailListReader.read(fileName);        
+    }
+    private static Histogram<String> process(List<String> mailList){        
+        return MailHistogramBuilder.build(mailList);
+    }
+    private static void output(Histogram<String> histogram){
         HistogramDisplay histoDisplay = new HistogramDisplay (histogram);
         histoDisplay.execute(); //hace visible
     }
