@@ -7,16 +7,18 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Mail;
 
 public class MailListReader {
     
-    public static List<String> read (String fileName) throws FileNotFoundException, IOException{
-        List<String> mailList = new ArrayList<>();
+    public static List<Mail> read (String fileName) throws FileNotFoundException, IOException{
+        List<Mail> mailList = new ArrayList<>();
+        Integer id = 0;
         BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)));
         String mail;
         while((mail=reader.readLine())!=null){
             if(mail.contains("@")){
-                mailList.add(mail);
+                mailList.add(new Mail(id,mail));
             }
         }
         return mailList;

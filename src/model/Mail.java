@@ -1,9 +1,12 @@
 package model;
 
 public class Mail {
+    private Integer id;
     private String mail;
 
-    public Mail(String mail) {
+
+    public Mail(Integer id, String mail) {
+        this.id = id;
         this.mail = mail;
     }
 
@@ -11,7 +14,8 @@ public class Mail {
         return mail;
     }
     
-    public String getDomain(){
-        return (mail.split("@")[1]);
+    public Integer getId() {
+        return id;
     }
+    
 }
